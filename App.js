@@ -14,9 +14,22 @@ export default function App() {
     <>
       <StatusBar style='dark' />
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name='MealsCategories' component={CategoriesScreen} />
-          <Stack.Screen name='MealsOverview' component={MealsOverviewScreen} />
+        <Stack.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: '#351401' },
+          headerTintColor: 'white',
+          contentStyle: {backgroundColor: '#3f2f25'}
+        }}>
+          <Stack.Screen 
+          name='MealsCategories' 
+          component={CategoriesScreen} 
+          options={{
+            title: 'Categories'
+          }} />
+          <Stack.Screen name='MealsOverview' component={MealsOverviewScreen}
+          options={{
+            title: 'Meal Deets'
+          }} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
@@ -34,3 +47,5 @@ const styles = StyleSheet.create({
 //Can rearrange order of stack.screen to set default screen
 //alternatively there is also and initialRouteName prop that can be set to the navigator component
 //<Stack.Navigator initialRouteName='MealsCategories'>.......</Stack.Navigator>
+
+//add custom title with options prop
