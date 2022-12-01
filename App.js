@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import CategoriesScreen from './screens/CategoriesScreen';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
+import MealDetailsScreen from './screens/MealDetailsScreen';
 
 //Stack is an object w/ two properties where every property holds an object that acts as a component
 const Stack = createStackNavigator();
@@ -12,23 +13,23 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style='dark' />
+      <StatusBar style='light' />
       <NavigationContainer>
         <Stack.Navigator
-        screenOptions={{
-          headerStyle: { backgroundColor: '#351401' },
-          headerTintColor: 'white',
-          contentStyle: {backgroundColor: '#3f2f25'}
-        }}>
-          <Stack.Screen 
-          name='MealsCategories' 
-          component={CategoriesScreen} 
-          options={{
-            title: 'Categories'
-          }} />
-          <Stack.Screen 
-          name='MealsOverview' 
-          component={MealsOverviewScreen}
+          screenOptions={{
+            headerStyle: { backgroundColor: '#351401' },
+            headerTintColor: 'white',
+            contentStyle: { backgroundColor: '#3f2f25' }
+          }}>
+          <Stack.Screen
+            name='MealsCategories'
+            component={CategoriesScreen}
+            options={{
+              title: 'Categories'
+            }} />
+          <Stack.Screen
+            name='MealsOverview'
+            component={MealsOverviewScreen}
           // options={({route, navigation}) => {
           //   const catId = route.params.categoryId;
           //   return {
@@ -36,6 +37,12 @@ export default function App() {
           //   };
           // }} 
           />
+          <Stack.Screen
+            name='MealDetails'
+            component={MealDetailsScreen}
+            options={{
+              title: 'Details'
+            }} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
