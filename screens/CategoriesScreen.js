@@ -10,7 +10,9 @@ function CategoriesScreen({ navigation }) {
   //optional helper function to keep JSX code leaner in CategoriesScreen function
   function renderCategoryItem(itemData) {
     function pressHandler() {
-      navigation.navigate('MealsOverview');
+      navigation.navigate('MealsOverview', {
+        categoryId: itemData.item.id,
+      });
     }
 
     return (

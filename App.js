@@ -31,3 +31,6 @@ const styles = StyleSheet.create({
 
 
 //register screens using stack.screen
+//Can rearrange order of stack.screen to set default screen
+//alternatively there is also and initialRouteName prop that can be set to the navigator component
+//<Stack.Navigator initialRouteName='MealsCategories'>.......</Stack.Navigator>

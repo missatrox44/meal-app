@@ -1,6 +1,7 @@
 import { View, Pressable, Text, StyleSheet, Platform } from 'react-native';
 
 function CategoryGridTile({ title, color, onPress }) {
+
   return (
     <View style={styles.gridItem}>
       <Pressable 
@@ -57,3 +58,7 @@ const styles = StyleSheet.create({
 //for shadow to take effect on iOS, need white background
 //elevation only for android
 //use overflow:hidden to make sure ripple effect does not go beyond rounded corners
+
+
+//Can utilize useNavigation hook when you want to navigate from inside a component that is not registered as a screen itself
+// import { useNavigation } from '@react-navigation/native';
