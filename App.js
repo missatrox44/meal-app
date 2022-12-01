@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import CategoriesScreen from './screens/CategoriesScreen';
+import MealsOverviewScreen from './screens/MealsOverviewScreen';
 
 //Stack is an object w/ two properties where every property holds an object that acts as a component
 const Stack = createStackNavigator();
@@ -14,7 +15,8 @@ export default function App() {
       <StatusBar style='dark' />
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name='Meals Categories' component={CategoriesScreen} />
+          <Stack.Screen name='MealsCategories' component={CategoriesScreen} />
+          <Stack.Screen name='MealsOverview' component={MealsOverviewScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
@@ -26,3 +28,6 @@ const styles = StyleSheet.create({
 
   },
 });
+
+
+//register screens using stack.screen
