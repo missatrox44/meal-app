@@ -6,19 +6,33 @@ import List from '../components/MealDetail/List';
 import IconButton from '../components/IconButton';
 
 import { MEALS } from '../data/dummy-data';
-import { FavoritesContext } from '../store/context/favorites-context';
+
+
+import { useDispatch, useSelector } from 'react-redux';
+//import actions for redux
+import { addFavorite, removeFavorite } from '../store/redux/favorites'
+
+// import { FavoritesContext } from '../store/context/favorites-context';
 
 function MealDetailsScreen({ route, navigation }) {
   //useContext hook 
-  const favoriteMealsCtx = useContext(FavoritesContext);
+  // const favoriteMealsCtx = useContext(FavoritesContext);
+
+  //redux hook
+  //state refers to redux store
+  const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
+  const dispatch = useDispatch();
+
 
   const mealId = route.params.mealId
-
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
   //boolean
-  //check if id is in favoriteMeals array
-  const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId);
+  //check if id is in favoriteMeals array - CONTEXT API
+  // const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId);
+
+  //REDUX - read data from redux store
+  const mealIsFavorite = favoriteMealIds.includes(mealId);
 
   //way to interact with component
   //doesnt need to be here
@@ -26,9 +40,13 @@ function MealDetailsScreen({ route, navigation }) {
   function changeFavoriteStatusHandler() {
    //toggle favorite status
     if (mealIsFavorite) {
-      favoriteMealsCtx.removeFavorite(mealId);
+      //CONTEXT API
+      // favoriteMealsCtx.removeFavorite(mealId);
+      dispatch(removeFavorite({id: mealId}));
     } else {
-      favoriteMealsCtx.addFavorite(mealId);
+      //CONTEXT API
+      // favoriteMealsCtx.addFavorite(mealId);
+      dispatch(addFavorite({id: mealId}));
     }
   }
 
