@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useContext, useLayoutEffect } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, Button } from 'react-native';
 import MealDetails from '../components/MealDetails';
 import Subtitle from '../components/MealDetail/Subtitle';
@@ -6,27 +6,44 @@ import List from '../components/MealDetail/List';
 import IconButton from '../components/IconButton';
 
 import { MEALS } from '../data/dummy-data';
+import { FavoritesContext } from '../store/context/favorites-context';
 
 function MealDetailsScreen({ route, navigation }) {
+  //useContext hook 
+  const favoriteMealsCtx = useContext(FavoritesContext);
+
   const mealId = route.params.mealId
 
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
+  //boolean
+  //check if id is in favoriteMeals array
+  const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId);
+
   //way to interact with component
   //doesnt need to be here
   //how to generally add items to a header such as button
-  function headerButtonPressHandler() {
-    console.log('Pressed!')
+  function changeFavoriteStatusHandler() {
+   //toggle favorite status
+    if (mealIsFavorite) {
+      favoriteMealsCtx.removeFavorite(mealId);
+    } else {
+      favoriteMealsCtx.addFavorite(mealId);
+    }
   }
-  // console.log(selectedMeal)
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <IconButton icon='star' color='white' onPress={headerButtonPressHandler} />
+        return <IconButton 
+        //conditionally render icon if favorite
+        icon={mealIsFavorite ? 'star' : 'star-outline'} 
+        color='white' 
+        onPress={changeFavoriteStatusHandler} />
       }
     })
-  }, [navigation, headerButtonPressHandler]);
+  }, [navigation, changeFavoriteStatusHandler]);
   
   return (
     <ScrollView style={styles.rootContainer}>
