@@ -3,10 +3,12 @@ React Native app using navigation, redux and context api
 
 [React Native Practical Guide](https://www.udemy.com/course/react-native-the-practical-guide/)
 
+## Demo
+<img src="./images/meal-app.gif" width="200" height="430" />
 
-To run locally:
+
+## To run locally:
 - clone repo
-
 
 - `npm install`
 
@@ -17,15 +19,16 @@ To run locally:
 - `i` to start iOS simulator
 
 
-## Demo
 
-![step-1](./images/meal-app-1.png)
-![step-2](./images/meal-app-2.png)
-![step-3](./images/meal-app-3.png)
-![step-4](./images/meal-app-4.png)
-![step-5](./images/meal-app-5.png)
-![step-6](./images/meal-app-6.png)
-![step-7](./images/meal-app-7.png)
+### Screenshots
+<img src="./images/meal-app-1.png" width="200" height="400" />
+<img src="./images/meal-app-2.png" width="200" height="400" />
+<img src="./images/meal-app-3.png" width="200" height="400" />
+<img src="./images/meal-app-4.png" width="200" height="400" />
+<img src="./images/meal-app-5.png" width="200" height="400" />
+<img src="./images/meal-app-6.png" width="200" height="400" />
+<img src="./images/meal-app-7.png" width="200" height="400" />
+
 
 ## Bugs
 - Unable to run iOS simulator after installing drawer navigation dependencies
